@@ -17,39 +17,39 @@ all:
 hacpack: sha.o aes.o extkeys.o pki.o utils.o main.o filepath.o ConvertUTF.o nca.o romfs.o pfs0.o ivfc.o nacp.o npdm.o cnmt.o ticket.o rsa.o
 	$(CC) -o $@ $^ $(LDFLAGS) -L $(LIBDIR)
 
-aes.o: aes.h types.h
+aes.o: src/aes.h src/types.h
 
-extkeys.o: extkeys.h types.h settings.h
+extkeys.o: src/extkeys.h src/types.h src/settings.h
 
-filepath.o: filepath.c types.h
+filepath.o: src/filepath.c src/types.h
 
-main.o: main.c pki.h types.h version.h
+main.o: src/main.c src/pki.h src/types.h src/version.h
 
-pki.o: pki.h aes.h types.h
+pki.o: src/pki.h src/aes.h src/types.h
 
-nca.o: nca.h
+nca.o: src/nca.h
 
-romfs.o: romfs.h
+romfs.o: src/romfs.h
 
-pfs0.o: pfs0.h
+pfs0.o: src/pfs0.h
 
-cnmt.o: cnmt.h
+cnmt.o: src/cnmt.h
 
-nacp.o: nacp.h
+nacp.o: src/nacp.h
 
-npdm.o: npdm.h
+npdm.o: src/npdm.h
 
-ivfc.o: ivfc.h
+ivfc.o: src/ivfc.h
 
-sha.o: sha.h types.h
+sha.o: src/sha.h src/types.h
 
-utils.o: utils.h types.h
+utils.o: src/utils.h src/types.h
 
-ticket.o: ticket.h ticket_files.h
+ticket.o: src/ticket.h src/ticket_files.h
 
-ConvertUTF.o: ConvertUTF.h
+ConvertUTF.o: src/ConvertUTF.h
 
-rsa.o: rsa.h rsa_keys.h
+rsa.o: src/rsa.h src/rsa_keys.h
 
 clean:
 	rm -f *.o hacpack hacpack.exe
