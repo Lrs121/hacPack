@@ -12,10 +12,10 @@ jobs:
     - name: Update repo.
       run: |
         git submodule update --init --recursive
-    - name: rename config.mk.template
-      run: mv config.mk.template config.mk
     - name: Build hacPack
-      run: make -j
+      run: |
+        cmake -S . -B build
+        cmake --build build
     - name: Build hacPack-Tools
       run: make -C hacPack-Tools/hacPackTools-NACP -j
     #- name: make build folder
@@ -30,4 +30,4 @@ jobs:
         # Artifact name
         name: Hacpack
         # Directory containing files to upload
-        path: ./
+        path: build/hackPack.exe
