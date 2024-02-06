@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.24)
 project(hacPack C CXX ASM)
 
 set(CMAKE_CXX_STANDARD 14)
-
+set(ENABLE_TESTING false)
 include_directories(src)
 
 set(MBEDTLS_DIR mbedtls/)
@@ -27,6 +27,7 @@ file(GLOB_RECURSE SOURCES_CXX ${PROJECT_SOURCE_DIR}/src/*.cpp
         ${PROJECT_SOURCE_DIR}/src/*/*/*.cpp)
 
 add_executable(hacPack ${SOURCES_ASM} ${SOURCES_C} ${SOURCES_CXX})
+#add_library(hacPack SHARED ${SOURCES_ASM} ${SOURCES_C} ${SOURCES_CXX})
 
 target_link_libraries(hacPack
         mbedcrypto
